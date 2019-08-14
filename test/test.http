@@ -1,0 +1,40 @@
+# @hostname = http://192.168.103.45
+@hostname = http://localhost
+@port = 8080
+@host = {{hostname}}:{{port}}
+
+###
+GET {{host}} HTTP/1.1
+
+
+###
+POST {{host}} HTTP/1.1
+
+{
+  ok: '121'
+}
+
+###
+POST {{host}}/file HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+###
+
+POST {{host}}/upload HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="text"
+
+title
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file_data"; filename="1.jpg"
+Content-Type: image/jpg
+
+< ./test.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
