@@ -69,14 +69,14 @@ if err then
 end
 
 local row = {
-  app_upload_info.uid and app_upload_info.uid.body or "",
-  app_upload_info.udid and app_upload_info.udid.body or "",
-  app_upload_info.app_version and app_upload_info.app_version.body or "",
-  app_upload_info.os_version and app_upload_info.os_version.body or "",
-  app_upload_info.client_type and app_upload_info.client_type.body or "",
+  app_upload_info.uid and app_upload_info.uid.body or "null",
+  app_upload_info.udid and app_upload_info.udid.body or "null",
+  app_upload_info.app_version and app_upload_info.app_version.body or "null",
+  app_upload_info.os_version and app_upload_info.os_version.body or "null",
+  app_upload_info.client_type and app_upload_info.client_type.body or "null",
   math.floor(ngx.now()),
-  app_upload_info.suggest and app_upload_info.suggest.body or "",
-  cos_fileurl
+  app_upload_info.suggest and app_upload_info.suggest.body or "null",
+  cos_fileurl or "null"
 }
 
 utils.write(csv_filepath, table.concat(row, ","))
