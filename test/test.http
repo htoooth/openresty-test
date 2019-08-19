@@ -1,14 +1,14 @@
 # @hostname = http://192.168.103.45
 @hostname = http://localhost
-@port = 8080
+@port = 8060
 @host = {{hostname}}:{{port}}
 
 ###
-GET {{host}} HTTP/1.1
+GET {{host}}/test1 HTTP/1.1
 
 
 ###
-POST {{host}} HTTP/1.1
+POST {{host}}/static HTTP/1.1
 
 {
   ok: '121'
