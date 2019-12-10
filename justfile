@@ -5,15 +5,15 @@
   watchexec -p -w conf -- just reload
 
 @start:
-  echo 'nginx start'
-  nginx.exe -p `pwd` -c conf/nginx.conf
+  echo 'openresty start'
+  openresty -p `pwd` -c conf/nginx.conf
 
 stop:
-  nginx.exe -s stop -p `pwd` -c conf/nginx.conf
+  openresty -s stop -p `pwd` -c conf/nginx.conf
 
 @reload:
   echo 'reload ok'
-  nginx.exe -s reload -p `pwd` -c conf/nginx.conf
+  openresty -s reload -p `pwd` -c conf/nginx.conf
 
 test +path="":
   curl localhost:8080{{path}}
