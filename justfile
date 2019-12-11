@@ -29,3 +29,6 @@ test +path="":
   rm -f logs/access.log
   touch logs/access.log
   tail -f -n 100 logs/access.log
+
+@redis:
+  redis-server
